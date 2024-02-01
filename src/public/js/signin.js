@@ -1,10 +1,7 @@
 (function ($) {
-    "use strict";
+    "validateform";
 
-
-     /*==================================================================
-    [ Focus input ]*/
-    $('.input100').each(function(){
+    $('.inputcontent').each(function(){
         $(this).on('blur', function(){
             if($(this).val().trim() != "") {
                 $(this).addClass('has-val');
@@ -15,12 +12,10 @@
         })    
     })
   
-  
-    /*==================================================================
-    [ Validate ]*/
+
     $('.validate-form').on('submit',function(){
         var check = true;
-        var input = $('.validate-input .input100').filter(function() {
+        var input = $('.validate-input .inputcontent').filter(function() {
             return $(this).attr("lang") === localStorage["language"];
           });
         for(var i=0; i<input.length; i++) {
@@ -29,12 +24,12 @@
                 check=false;
             }
         }
-        // if check return false, stop and don't do action on form
+
         return check;
     });
 
 
-    $('.validate-form .input100').each(function(){
+    $('.validate-form .inputcontent').each(function(){
         $(this).focus(function(){
            hideValidate(this);
         });

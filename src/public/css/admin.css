@@ -72,10 +72,7 @@ body {
   z-index: 2;
 }
 .messages-show .messages-show-header {
-  background-image: url("../image/index/bg-01.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #3545d8;
   height: 40px;
   display: flex;
   justify-content: space-between;
