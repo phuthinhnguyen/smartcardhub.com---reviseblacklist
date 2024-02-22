@@ -1,7 +1,6 @@
 var express = require("express");
 var configViewEngine = require ("./src/configs/viewEngine");
 var initWebroute = require("./src/route/web");
-var initAPIRoute = require ("./src/route/api");
 var session = require('express-session')
 const flash = require('connect-flash')
 require("dotenv").config();
@@ -26,7 +25,5 @@ configViewEngine.configViewEngine(app);
 // init webroute
 initWebroute.initWebroute(app)
 
-// init api route
-initAPIRoute.initAPIRoute(app)
 
 app.listen(port,()=>console.log("ok"))

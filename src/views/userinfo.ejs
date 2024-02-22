@@ -12,7 +12,7 @@
 	<!-- <link rel="stylesheet" type="text/css" href="/font/iconic/css/material-design-iconic-font.min.css"> -->
 	<!-- <link rel="stylesheet" type="text/css" href="/css/util.css"> -->
 	<link rel="stylesheet" type="text/css" href="/css/userinfo.css">
-	<link rel="stylesheet" href="/css/avatar.css">
+	<!-- <link rel="stylesheet" href="/css/avatar.css"> -->
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -211,10 +211,10 @@
 
 		<!-- content -->
 		<div class="content">
-			<div class="limiter" id="limiter">
-				<div class="container-login100">
-					<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-						<form class="login100-form validate-form" method="post"
+			<div class="contentwrap" id="contentwrap">
+				<div class="login-container">
+					<div class="login-wrap">
+						<form class="login-form validate-form" method="post"
 							action="/<%= datauser.cardid %>/userinfo" enctype="multipart/form-data">
 							<div class="parent">
 								<div>
@@ -256,13 +256,12 @@
 									onkeypress="return event.keyCode != 13;" style="font-size: 18px;font-weight: 400;"/>
 								<i class="fas fa-pencil" onclick="editbio(this)"></i>
 							</div>
-							<div class="container-login100-form-btn" id="addlink-btn">
-								<div class="wrap-login100-form-btn">
-									<div class="login100-form-bgbtn"></div>
-									<div class="login100-form-btn" lang="en">
+							<div class="" id="addlink-btn">
+								<div class="">
+									<div class="addlinkbtn" lang="en">
 										<i class="far fa-plus"></i>Add link
 									</div>
-									<div class="login100-form-btn" lang="vi">
+									<div class="addlinkbtn" lang="vi">
 										<i class="far fa-plus"></i>Tạo link
 									</div>
 								</div>
@@ -291,8 +290,10 @@
 												value="<%= datauser.link.linktype[i] %>"></input>
 											<div class="link">
 												<div class="linklogo">
-													<img
-														src="/image/userinfo/<%= datauser.link.linktype[i].toLowerCase() %>.png">
+													<!-- <img
+														src="/image/userinfo/<%= datauser.link.linktype[i].toLowerCase() %>.png"> -->
+														<img
+														src="" alt="">
 												</div>
 												<div class="linkinput">
 													<div class="linknametitle-wrap">
@@ -359,13 +360,12 @@
 									</div>
 								</div>
 							</div> -->
-							<div class="container-login100-form-btn">
-								<div class="wrap-login100-form-btn">
-									<div class="login100-form-bgbtn"></div>
-									<button class="login100-form-btn" type="submit" lang="en">
+							<div class="">
+								<div class="">
+									<button class="addlinkbtn" type="submit" lang="en">
 										Save
 									</button>
-									<button class="login100-form-btn" type="submit" lang="vi">
+									<button class="addlinkbtn" type="submit" lang="vi">
 										Lưu
 									</button>
 								</div>
@@ -421,7 +421,9 @@
 						<% if (datauser.link!="" ) { %>
 							<% for(let i=0; i < datauser.link.linktype.length; i++) { %>
 								<a class="link" href='<%= datauser.link.inputlink[i] %>' target="_blank">
-									<img src="/image/userinfo/<%= datauser.link.linktype[i].toLowerCase() %>.png"
+									<!-- <img src="/image/userinfo/<%= datauser.link.linktype[i].toLowerCase() %>.png"
+										alt="" /> -->
+									<img src=""
 										alt="" />
 									<p>
 										<%= datauser.link.inputtitle[i] %>
@@ -539,7 +541,7 @@
 </div>
 <script>
 	function closetoast() {
-		document.getElementById("limiter").style.opacity = "1";
+		document.getElementById("contentwrap").style.opacity = "1";
 	}
 </script>
 

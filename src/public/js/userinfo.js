@@ -151,26 +151,26 @@ let flagshowanimation = true;
 // animation when user inputs info
 function showanimation() {
     let show = document.getElementById("show");
-    let limiter = document.getElementById("limiter");
+    let contentwrap = document.getElementById("contentwrap");
     let name = document.getElementById("name");
     let linkarea = document.getElementById("link-area");
 
     if (flagshowanimation == true) {
         if ((name.value != yournametext && linkarea.children.length == 0) || (name.value == yournametext && linkarea.children.length > 0) || (name.value != yournametext && linkarea.children.length > 0)) {
             if (window.innerWidth > 1500) {
-                animatein(limiter, show, 250);
+                animatein(contentwrap, show, 250);
 
             }
             else if (window.innerWidth <= 1500 && window.innerWidth >= 1101) {
 
-                animatein(limiter, show, 400)
+                animatein(contentwrap, show, 400)
             }
             else if (window.innerWidth <= 1100 && window.innerWidth >= 992) {
 
-                animatein(limiter, show, 320)
+                animatein(contentwrap, show, 320)
             }
             else if (window.innerWidth <= 991) {
-                limiter.animate([
+                contentwrap.animate([
                     { marginTop: `${50}px` },
                     { marginTop: `${400}px` },
                 ], {
@@ -195,13 +195,13 @@ function showanimation() {
     }
     if (name.value == yournametext && linkarea.children.length == 0 && flagshowanimation == false) {
         if (window.innerWidth > 1500) {
-            animateout(limiter, show, 250, 600);
+            animateout(contentwrap, show, 250, 600);
         }
         else if (window.innerWidth <= 1500 && window.innerWidth >= 1101) {
-            animateout(limiter, show, 400, 300)
+            animateout(contentwrap, show, 400, 300)
         }
         else if (window.innerWidth <= 1100 && window.innerWidth >= 992) {
-            animateout(limiter, show, 320, 200)
+            animateout(contentwrap, show, 320, 200)
         }
         else if (window.innerWidth <= 991) {
             show.animate([
@@ -210,7 +210,7 @@ function showanimation() {
             ], {
                 duration: 500,
             });
-            limiter.animate([
+            contentwrap.animate([
                 { marginTop: `${400}px` },
                 { marginTop: `${50}px` },
             ], {
@@ -249,7 +249,8 @@ function addlinkfunction(a) {
             }
             return frag;
         }
-        var fragment = create(`<div id="container-showlink"><input name="linktype" type="hidden" value="${a.innerText}"></input><div class="link"><div class="linklogo"><img src="/image/userinfo/${a.innerText.toLowerCase()}.png"></div><div class="linkinput"><div class="linknametitle-wrap"><h5 id="linknametitle">${a.innerText}&nbsp;-&nbsp;</h5><input id="title" name="inputtitle" class="inputtitle" readonly="true" value="${(name.value == yournametext) ? yourtitletext : name.value}" maxlength="40" size="18" onfocusout="inputtitlefocusout(this)" onkeyup="inputKeyUp(event,this)" onkeypress="return event.keyCode != 13;"></input></div><i class="fas fa-pencil" onclick="editinputtitle(this)"></i><input id="link" name="inputlink" readonly="true" value="http://${a.innerText.toLowerCase()}.com/${yourlinktext}" maxlength="100" size="39" onfocusout="inputlinkfocusout(this)" onkeyup="inputKeyUp(event,this)" onkeypress="return event.keyCode != 13;"></input><i class="fas fa-pencil" onclick="editinputlink(this)"></i></div><div class="linktrash"><i class="fas fa-trash" onclick="clicktrash(this)"></i></div><div class="yesno"><i class="fas fa-check" id="yes" onclick="removelink(this)"></i><i class="fas fa-times" id="no" onclick="clickno(this)"></i></div></div></div>`);
+        // var fragment = create(`<div id="container-showlink"><input name="linktype" type="hidden" value="${a.innerText}"></input><div class="link"><div class="linklogo"><img src="/image/userinfo/${a.innerText.toLowerCase()}.png"></div><div class="linkinput"><div class="linknametitle-wrap"><h5 id="linknametitle">${a.innerText}&nbsp;-&nbsp;</h5><input id="title" name="inputtitle" class="inputtitle" readonly="true" value="${(name.value == yournametext) ? yourtitletext : name.value}" maxlength="40" size="18" onfocusout="inputtitlefocusout(this)" onkeyup="inputKeyUp(event,this)" onkeypress="return event.keyCode != 13;"></input></div><i class="fas fa-pencil" onclick="editinputtitle(this)"></i><input id="link" name="inputlink" readonly="true" value="http://${a.innerText.toLowerCase()}.com/${yourlinktext}" maxlength="100" size="39" onfocusout="inputlinkfocusout(this)" onkeyup="inputKeyUp(event,this)" onkeypress="return event.keyCode != 13;"></input><i class="fas fa-pencil" onclick="editinputlink(this)"></i></div><div class="linktrash"><i class="fas fa-trash" onclick="clicktrash(this)"></i></div><div class="yesno"><i class="fas fa-check" id="yes" onclick="removelink(this)"></i><i class="fas fa-times" id="no" onclick="clickno(this)"></i></div></div></div>`);
+        var fragment = create(`<div id="container-showlink"><input name="linktype" type="hidden" value="${a.innerText}"></input><div class="link"><div class="linklogo"><img src=""></div><div class="linkinput"><div class="linknametitle-wrap"><h5 id="linknametitle">${a.innerText}&nbsp;-&nbsp;</h5><input id="title" name="inputtitle" class="inputtitle" readonly="true" value="${(name.value == yournametext) ? yourtitletext : name.value}" maxlength="40" size="18" onfocusout="inputtitlefocusout(this)" onkeyup="inputKeyUp(event,this)" onkeypress="return event.keyCode != 13;"></input></div><i class="fas fa-pencil" onclick="editinputtitle(this)"></i><input id="link" name="inputlink" readonly="true" value="http://${a.innerText.toLowerCase()}.com/${yourlinktext}" maxlength="100" size="39" onfocusout="inputlinkfocusout(this)" onkeyup="inputKeyUp(event,this)" onkeypress="return event.keyCode != 13;"></input><i class="fas fa-pencil" onclick="editinputlink(this)"></i></div><div class="linktrash"><i class="fas fa-trash" onclick="clicktrash(this)"></i></div><div class="yesno"><i class="fas fa-check" id="yes" onclick="removelink(this)"></i><i class="fas fa-times" id="no" onclick="clickno(this)"></i></div></div></div>`);
         linkarea.appendChild(fragment)
         $(".yesno").hide();
         let link = document.querySelectorAll("#link")[document.querySelectorAll("#link").length-1]
@@ -268,7 +269,8 @@ function addlinkfunction(a) {
 
         // for showarea
         let showLinkcontainer = document.getElementById("link-container");
-        var showFragment = create(`<a class="link" href='#' target="_blank"><img src="/image/userinfo/${a.innerText.toLowerCase()}.png" alt=""><p>${name.value != yournametext ? name.value : yourtitletext}</p></a>`);
+        // var showFragment = create(`<a class="link" href='#' target="_blank"><img src="/image/userinfo/${a.innerText.toLowerCase()}.png" alt=""><p>${name.value != yournametext ? name.value : yourtitletext}</p></a>`);
+        var showFragment = create(`<a class="link" href='#' target="_blank"><img src="" alt=""><p>${name.value != yournametext ? name.value : yourtitletext}</p></a>`);
         showLinkcontainer.appendChild(showFragment)
 
         // align tag p center depend on length of @yourtitle
@@ -295,7 +297,7 @@ function addlinkfunction(a) {
         showanimation();
     }
     else {
-        document.getElementById("limiter").style.opacity="0.3";
+        document.getElementById("contentwrap").style.opacity="0.3";
         $('.toast-container-res').css("visibility", "visible");
         $('.toast').toast("show")
        
@@ -658,12 +660,12 @@ function skip() {
     body.style.opacity = "1";
     let guides = document.getElementById("guides");
     guides.style.display = "none";
-    let limiter = document.getElementById("limiter");
+    let contentwrap = document.getElementById("contentwrap");
     let train = document.getElementById("train")
     train.value="done";
 
     if (window.innerWidth > 991) {
-        limiter.animate([
+        contentwrap.animate([
             { marginLeft: "20%" },
             { marginLeft: "10%" },
             { marginLeft: "2%" },
@@ -674,7 +676,7 @@ function skip() {
         });
     }
     else if (window.innerWidth <= 991 && window.innerWidth > 700) {
-        limiter.animate([
+        contentwrap.animate([
             { marginLeft: "25%" },
             { marginLeft: "20%" },
             { marginLeft: "15%" },
@@ -684,7 +686,7 @@ function skip() {
         });
     }
     else {
-        limiter.animate([
+        contentwrap.animate([
             { marginLeft: "5%" },
             { marginLeft: "3%" },
             { marginLeft: "1%" },
@@ -693,7 +695,7 @@ function skip() {
             duration: 2000,
         });
     }
-    limiter.style.margin = "auto";
+    contentwrap.style.margin = "auto";
 }
 
 function guidesgo(num) {
